@@ -4,7 +4,7 @@ feedback drone for norns. a port of the [Synthux Academy Audrey II](https://www.
 
 **work in progress** - playable and stable on a norns (CM3+), but the UI is minimal and things will change.
 
-turn your volume down before you start. it's a feedback instrument.
+turn your volume down before you start. it's a feedback instrument, fool.
 
 ## how it works
 
