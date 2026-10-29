@@ -8,7 +8,7 @@ turn your volume down before you start. it's a feedback instrument.
 
 ## how it works
 
-a Karplus-Strong string sits inside a big feedback loop: string -> overdrive -> filters -> reverb -> body delay -> back into the string. the loop is fed a constant, inaudible (-90 dB) noise, so nothing happens until you raise the feedback. somewhere around the middle it wakes up and starts to drone. everything else shapes what the loop locks onto.
+a Karplus-Strong string sits inside a big feedback loop: string -> overdrive -> filters -> reverb -> body delay -> back into the string. the loop is fed a constant, inaudible (-90 dB) noise, so nothing happens until you raise the feedback. with the default settings it starts to build at around **-24 dB** and is usually fully awake by about **-17 dB**. it swells in over a few seconds rather than snapping on, so take it slowly through that range (each E1 click is roughly 0.4 dB). there's a limiter on the output, but start with your volume low anyway. heavy crush or sub can make it wake a little earlier. everything else shapes what the loop locks onto.
 
 the DSP follows the original Daisy firmware closely: same signal order, parameter ranges, curves and smoothing. the extras are on top.
 
