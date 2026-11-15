@@ -1,16 +1,26 @@
 # audrey
 
-feedback drone for norns. a port of the [Synthux Academy Audrey II](https://www.synthux.academy/store/audrey-ii), a "horrorscape" synth by Nick Donaldson (Infrasonic Audio), with a few extras bolted on.
+feedback drone for norns - a port of the [Synthux Academy Audrey II](https://www.synthux.academy/store/audrey-ii), with extra reverbs, crush, sub and LFOs.
 
-**work in progress** - playable and stable on a norns (CM3+), but the UI is minimal and things will change.
+a Karplus-Strong string sits inside a feedback loop fed by inaudible noise. nothing sounds until you raise the feedback, then the loop wakes up and settles into a drone, and every other control shapes what it settles on. the original Audrey II is a "horrorscape" synth by Synthux Academy, with its concept and engine by Nick Donaldson (Infrasonic Audio). this port follows its Daisy firmware closely and adds swappable reverbs, a crush section with a position switch, a sub-octave divider and four LFOs. the same engine also runs in SuperCollider on a laptop.
+
+**work in progress** - playable and stable on norns, but the UI is minimal and things will change.
 
 turn your volume down before you start. it's a feedback instrument, fool.
 
-## how it works
+## requirements
 
-a Karplus-Strong string sits inside a big feedback loop: string -> overdrive -> filters -> reverb -> body delay -> back into the string. the loop is fed a constant, inaudible (-90 dB) noise, so nothing happens until you raise the feedback. with the default settings it starts to build at around **-24 dB** and is usually fully awake by about **-17 dB**. it swells in over a few seconds rather than snapping on, so take it slowly through that range (each E1 click is roughly 0.4 dB). there's a limiter on the output, but start with your volume low anyway. heavy crush or sub can make it wake a little earlier. everything else shapes what the loop locks onto.
+- norns (tested on a CM3+ norns, where it uses about 15% of one core)
+- optional: a source in the left line input. it's mixed into the loop, so audrey works as an effect too
+- no extra SuperCollider plugins
 
-the DSP follows the original Daisy firmware closely: same signal order, parameter ranges, curves and smoothing. the extras are on top.
+## install
+
+```
+;install https://github.com/mattbx/audrey
+```
+
+it's a new engine, so do SYSTEM > RESTART after installing.
 
 ## controls
 
@@ -35,13 +45,11 @@ the DSP follows the original Daisy firmware closely: same signal order, paramete
 
 four LFOs in PARAMS > LFOs, using the norns lfo library. pick a target, switch it on. they move around your setting rather than replacing it, so turning one off puts the param back where you left it. while an LFO is running its target shows the live value with a `~`.
 
-## install
+## how it works
 
-```
-;install https://github.com/mattbx/audrey
-```
+a Karplus-Strong string sits inside a big feedback loop: string -> overdrive -> filters -> reverb -> body delay -> back into the string. the loop is fed a constant, inaudible (-90 dB) noise, so nothing happens until you raise the feedback. with the default settings it starts to build at around **-24 dB** and is usually fully awake by about **-17 dB**. it swells in over a few seconds rather than snapping on, so take it slowly through that range (each E1 click is roughly 0.4 dB). there's a limiter on the output, but start with your volume low anyway. heavy crush or sub can make it wake a little earlier. everything else shapes what the loop locks onto.
 
-it's a new engine, so do SYSTEM > RESTART after installing. no extra SuperCollider plugins needed.
+the DSP follows the original Daisy firmware closely: same signal order, parameter ranges, curves and smoothing. the extras are on top.
 
 ## laptop version
 
