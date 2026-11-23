@@ -10,8 +10,7 @@
 -- The states are reached with the encoders a player would use, and the option
 -- params with params:set. Nothing here is random and time never moves, so every
 -- run draws the same pixels on any machine. The offline LFOs never move either:
--- the "LFO on feedback" shot shows the ~ marker with the setting, not a
--- modulated value. Add a shot here for whatever state you're working on.
+-- the LFO shots show the ~ marker with the setting, not a modulated value. Add a shot here for whatever state you're working on.
 
 return {
   script = "audrey.lua",
@@ -23,13 +22,14 @@ return {
     sim.enc(1, 110)
     shot("E1 feedback raised")
 
-    -- E2 and E3 turned, with the Plate reverb named top right
-    sim.enc(2, 20)
+    -- E2 and E3 turned, with the Plate reverb named top right. 22 clicks, not 20: 20 lands body
+    -- on 25.75 ms, a rounding tie the device's own float sums could tip the other way
+    sim.enc(2, 22)
     sim.enc(3, -15)
     params:set("verbType", 3)
     shot("body, frequency, plate")
 
-    -- E3 at the top: the longest value the screen shows, against its label
+    -- E3 at the top: the longest plain value, against its label
     sim.enc(3, 100)
     shot("E3 at the top")
 
@@ -37,5 +37,11 @@ return {
     params:set("audrey_lfo_target_1", 2)
     params:set("lfo_audrey_1", 2)
     shot("LFO on feedback")
+
+    -- LFO 2 on frequency too, still at the top: the longest value the screen shows,
+    -- with the ~ marker in front
+    params:set("audrey_lfo_target_2", 3)
+    params:set("lfo_audrey_2", 2)
+    shot("LFO on frequency, at the top")
   end,
 }
