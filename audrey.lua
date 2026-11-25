@@ -200,7 +200,7 @@ function redraw()
   screen.text_right(params:string("verbType"))
   line(28, "E1 feedback", "fbGain")
   line(40, "E2 body", "body")
-  line(52, "E3 frequency", "pitch")
+  line(52, "E3 freq", "pitch")
   screen.update()
 end
 
